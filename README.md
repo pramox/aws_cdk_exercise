@@ -1,12 +1,3 @@
-## Report contributions
-
-| Section                             | Member in charge |
-|-------------------------------------|------------------|
-| Preamble                            | Ronja Meier      |
-| Design decisions, technology choice | Philipp Gorke    |
-| Evaluation, Analysis                |                  |
-| Conclusion                          |                  |
-| Theory Questions                    | Samuel Lechner   |
 
 ## Setup guide
 
