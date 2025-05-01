@@ -1,0 +1,21 @@
+.home-container {
+  @apply mt-12;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-container {
+  @apply flex gap-4;
+}
+
+.btn {
+  @apply py-3 px-6;
+  @apply text-sm cursor-pointer border-none shadow-center rounded-lg;
+  @apply transition-shadow duration-300;
+
+  &:hover {
+    @apply shadow-center-wide;
+  }
+}

@@ -1,0 +1,17 @@
+<app-header-menu></app-header-menu>
+<div class="base-container">
+  <form #loginForm="ngForm" class="login-form">
+    <label class="form-title">Login</label>
+    <input type="email" id="email" name="email" placeholder="Email" [(ngModel)]="email" required>
+    <input type="text" id="firstName" name="firstName" placeholder="First name" [(ngModel)]="firstName" required>
+    <input type="text" id="lastName" name="lastName" placeholder="Last Name" [(ngModel)]="lastName" required>
+    <input type="password" id="password" name="password" placeholder="Password" [(ngModel)]="password" required>
+    <input type="file" id="profilePicture" name="profilePicture" accept="image/png, image/jpeg" (change)="onFileSelected($event)">
+    <div class="form-footer">
+      <div>
+        <button class="button-primary" [disabled]="loginForm.invalid" (click)="signup()">Sign up</button>
+      </div>
+      <a routerLink="/login">Login</a>
+    </div>
+  </form>
+</div>

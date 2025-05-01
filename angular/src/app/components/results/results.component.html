@@ -1,0 +1,36 @@
+<app-header-menu></app-header-menu>
+<div class="results-container">
+    <div *ngIf="!authService.isLoggedIn(); else loggedInContent">
+        <button class="login-button" routerLink="/login">Login</button>
+    </div>
+
+    <ng-template #loggedInContent>
+        <h1>Results</h1>
+      <p>
+        {{results.length}} results found.
+      </p>
+        <div *ngIf="!results || results.length === 0">
+            <p *ngIf="!results">Loading results...</p>
+            <p *ngIf="results && results.length === 0">No results found.</p>
+        </div>
+        <h2 *ngIf="results && results.length > 0">Grade: {{calculateGrade()}} Solved: {{countSolved()}} Correct: {{countCorrect()}}</h2>
+        <table *ngIf="results && results.length > 0" class="results-table">
+            <thead>
+                <tr>
+                    <th>Question</th>
+                    <th>Is solved</th>
+                    <th>Exercise Type</th>
+                    <th>Created At</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let result of results">
+                    <td>{{ formatQuestion(result.Question, result.ExerciseType) }}</td>
+                    <td>{{ result.IsSolved ? 'Yes' : 'No' }}</td>
+                    <td>{{ result.ExerciseType }}</td>
+                    <td>{{ result.CreatedAt | date }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </ng-template>
+</div>

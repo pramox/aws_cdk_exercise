@@ -1,0 +1,14 @@
+<app-header-menu></app-header-menu>
+<div class="base-container">
+  <form #loginForm="ngForm" class="login-form">
+    <label class="form-title">Login</label>
+    <input type="text" id="username" name="username" placeholder="Username" [(ngModel)]="username" required>
+    <input type="password" id="password" name="password" placeholder="Password" [(ngModel)]="password" required>
+    <div class="form-footer">
+      <div>
+        <button class="button-primary" [disabled]="loginForm.invalid" (click)="login()">Login</button>
+      </div>
+      <a routerLink="/signup">Sign up</a>
+    </div>
+  </form>
+</div>

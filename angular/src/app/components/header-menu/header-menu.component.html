@@ -1,0 +1,12 @@
+<header>
+  <nav>
+    <a routerLink="/"><h1>E-Learning</h1></a>
+    <div class="nav-links">
+      <a routerLink="/">Home</a>
+      <button class="login-button" *ngIf="!auth.isLoggedIn()" routerLink="/login">Login</button>
+      <button class="login-button" *ngIf="auth.isLoggedIn()" (click)="logout()">Logout</button>
+      <img [src]="profileImage" *ngIf="profileImage" alt="Profile Image" class="profile-image">
+    </div>
+  </nav>
+</header>
+<div class="header-dummy"></div>

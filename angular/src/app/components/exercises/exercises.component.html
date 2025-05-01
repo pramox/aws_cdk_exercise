@@ -1,0 +1,28 @@
+<app-header-menu></app-header-menu>
+<div class="base-container">
+  <div *ngIf="!authService.isLoggedIn(); else loggedInContent">
+    <button class="login-button" routerLink="/login">Login</button>
+  </div>
+
+  <ng-template #loggedInContent>
+    <h1>Exercises</h1>
+    <div *ngIf="showButtons" class="button-container">
+      <button class="btn" (click)="fetchExercise('ADDITION')">Addition</button>
+      <button class="btn" (click)="fetchExercise('MULTIPLICATION')">Multiplication</button>
+      <button class="btn" (click)="fetchExercise('DERIVATIVE')">Derivative</button>
+    </div>
+
+    <div *ngIf="currentExercise">
+      <h3>{{ displayQuestion }}</h3>
+      <form [formGroup]="exerciseForm" (ngSubmit)="submitSolution()" class="exercise-form">
+        <div>
+          <label for="userAnswer">Your Answer:</label>
+          <input id="userAnswer" formControlName="userAnswer" type="text" required />
+        </div>
+        <div class="flex justify-center">
+          <button class="btn" type="submit">Submit</button>
+        </div>
+      </form>
+    </div>
+  </ng-template>
+</div>
